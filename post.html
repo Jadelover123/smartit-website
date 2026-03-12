@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <!--
+  ___  ___ ____  ___ _  _
+ | _ \| __| _  \| _ \ \/ /
+ |  _/| _||    /|  _/>  <
+ |_|  |___|_|\_\|_| /_/\_\
+ Created with Perplexity Computer
+ https://www.perplexity.ai/computer
+-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | SmartIT LLC</title>
+  <meta name="description" content="SmartIT LLC blog — technology insights for small businesses in Lake Charles, Louisiana.">
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./base.css">
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    var t=document.querySelector('[data-theme-toggle]');
+    var r=document.documentElement;
+    var d=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+    r.setAttribute('data-theme',d);
+  </script>
+  <style>
+    .post-hero {
+      padding-block: clamp(var(--space-16), 8vw, var(--space-24));
+      background: var(--color-bg);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .post-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: clamp(var(--space-12), 6vw, var(--space-20)) var(--space-6);
+      font-size: var(--text-base);
+      line-height: 1.8;
+      color: var(--color-text);
+    }
+    .post-body h2 {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 800;
+      color: var(--color-text);
+      margin-top: var(--space-10);
+      margin-bottom: var(--space-4);
+    }
+    .post-body h3 {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: 700;
+      color: var(--color-text);
+      margin-top: var(--space-8);
+      margin-bottom: var(--space-3);
+    }
+    .post-body p { margin-bottom: var(--space-5); }
+    .post-body ul, .post-body ol {
+      padding-left: var(--space-6);
+      margin-bottom: var(--space-5);
+    }
+    .post-body li { margin-bottom: var(--space-2); }
+    .post-body a { color: var(--color-primary); text-decoration: underline; }
+    .post-body strong { font-weight: 700; color: var(--color-text); }
+    .post-body img {
+      width: 100%;
+      border-radius: var(--radius-2xl);
+      margin-block: var(--space-8);
+    }
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-6);
+      flex-wrap: wrap;
+    }
+    .post-tag {
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+    }
+    .post-date {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+    }
+    .post-title {
+      font-family: var(--font-display);
+      font-size: clamp(var(--text-3xl), 5vw, var(--text-hero));
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--color-text);
+      margin-bottom: var(--space-6);
+    }
+    .post-summary {
+      font-size: var(--text-lg);
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      max-width: 600px;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--color-primary);
+      text-decoration: none;
+      margin-bottom: var(--space-8);
+    }
+    .back-link:hover { opacity: 0.8; }
+    #post-loading { text-align: center; padding: var(--space-20); color: var(--color-text-muted); }
+    #post-not-found { text-align: center; padding: var(--space-20); }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <header class="nav" id="site-header" role="banner">
+    <nav class="nav-inner container" role="navigation" aria-label="Main navigation">
+      <a href="./index.html" class="nav-logo" aria-label="SmartIT LLC home">
+        <img src="./assets/logo.png" alt="SmartIT LLC" class="nav-logo-img" width="140" height="28">
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./services.html">Services</a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./blog.html" class="active">Blog</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="./contact.html" class="btn btn-primary">Get in Touch</a>
+      </div>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <div class="nav-mobile" id="nav-mobile" role="navigation" aria-label="Mobile navigation">
+      <ul role="list">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./services.html">Services</a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./blog.html">Blog</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div id="post-loading">Loading post...</div>
+  <div id="post-not-found" style="display:none;">
+    <h2 style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:800;color:var(--color-text);">Post not found</h2>
+    <p style="color:var(--color-text-muted);margin-top:var(--space-4);">Sorry, we couldn't find that blog post.</p>
+    <a href="./blog.html" class="btn btn-primary" style="display:inline-flex;margin-top:var(--space-6);">Back to Blog</a>
+  </div>
+
+  <article id="post-content" style="display:none;">
+    <div class="post-hero">
+      <div class="container" style="max-width:720px;">
+        <a href="./blog.html" class="back-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Back to Blog
+        </a>
+        <div class="post-meta">
+          <span class="post-tag" id="post-category"></span>
+          <span class="post-date" id="post-date"></span>
+        </div>
+        <h1 class="post-title" id="post-title"></h1>
+        <p class="post-summary" id="post-summary"></p>
+      </div>
+    </div>
+    <div class="post-body" id="post-body"></div>
+  </article>
+
+  <!-- FOOTER -->
+  <footer style="background: var(--color-surface); border-top: 1px solid var(--color-border); padding-block: var(--space-12);">
+    <div class="container" style="display:flex;flex-wrap:wrap;gap:var(--space-6);justify-content:space-between;align-items:center;">
+      <div>
+        <img src="./assets/logo.png" alt="SmartIT LLC" style="height:28px;width:auto;margin-bottom:var(--space-2);">
+        <p style="font-size:var(--text-xs);color:var(--color-text-muted);">© 2026 SmartIT LLC. All rights reserved.</p>
+        <p style="font-size:var(--text-xs);color:var(--color-text-muted);margin-top:4px;">Lake Charles, Louisiana</p>
+      </div>
+      <div style="display:flex;gap:var(--space-6);flex-wrap:wrap;">
+        <a href="./index.html" style="font-size:var(--text-sm);color:var(--color-text-muted);text-decoration:none;">Home</a>
+        <a href="./services.html" style="font-size:var(--text-sm);color:var(--color-text-muted);text-decoration:none;">Services</a>
+        <a href="./about.html" style="font-size:var(--text-sm);color:var(--color-text-muted);text-decoration:none;">About</a>
+        <a href="./blog.html" style="font-size:var(--text-sm);color:var(--color-text-muted);text-decoration:none;">Blog</a>
+        <a href="./contact.html" style="font-size:var(--text-sm);color:var(--color-text-muted);text-decoration:none;">Contact</a>
+      </div>
+      <p style="font-size:var(--text-xs);color:var(--color-text-muted);">
+        <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer" style="color:var(--color-text-muted);text-decoration:none;">Created with Perplexity Computer</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+  // Parse URL param ?post=slug
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var slug = params.get('post');
+    if (!slug) { showNotFound(); return; }
+
+    fetch('./posts/' + slug + '.md')
+      .then(function(r) {
+        if (!r.ok) throw new Error('Not found');
+        return r.text();
+      })
+      .then(function(text) {
+        // Parse frontmatter
+        var fm = {};
+        var body = text;
+        var fmMatch = text.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+        if (fmMatch) {
+          fmMatch[1].split('\n').forEach(function(line) {
+            var idx = line.indexOf(':');
+            if (idx > -1) {
+              var key = line.slice(0, idx).trim();
+              var val = line.slice(idx + 1).trim().replace(/^["']|["']$/g, '');
+              fm[key] = val;
+            }
+          });
+          body = fmMatch[2];
+        }
+        // Render
+        document.title = (fm.title || 'Blog Post') + ' | SmartIT LLC';
+        document.getElementById('post-title').textContent = fm.title || '';
+        document.getElementById('post-category').textContent = fm.category || '';
+        document.getElementById('post-date').textContent = fm.date ? new Date(fm.date).toLocaleDateString('en-US', {year:'numeric',month:'long',day:'numeric'}) : '';
+        document.getElementById('post-summary').textContent = fm.summary || '';
+        document.getElementById('post-body').innerHTML = marked.parse(body);
+        document.getElementById('post-loading').style.display = 'none';
+        document.getElementById('post-content').style.display = 'block';
+      })
+      .catch(function() { showNotFound(); });
+
+    function showNotFound() {
+      document.getElementById('post-loading').style.display = 'none';
+      document.getElementById('post-not-found').style.display = 'block';
+    }
+  })();
+  </script>
+  <script>
+  (function(){
+    var t=document.querySelector('[data-theme-toggle]');
+    var r=document.documentElement;
+    var d=r.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+    r.setAttribute('data-theme',d);
+    function updateIcon(){if(!t)return;t.innerHTML=d==='dark'?'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>':'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';t.setAttribute('aria-label','Switch to '+(d==='dark'?'light':'dark')+' mode');}
+    updateIcon();
+    if(t)t.addEventListener('click',function(){d=d==='dark'?'light':'dark';r.setAttribute('data-theme',d);localStorage.setItem('theme',d);updateIcon();});
+  })();
+  (function(){var header=document.getElementById('site-header');window.addEventListener('scroll',function(){if(window.scrollY>20)header.classList.add('scrolled');else header.classList.remove('scrolled');},{passive:true});})();
+  (function(){var btn=document.getElementById('nav-hamburger');var menu=document.getElementById('nav-mobile');if(!btn||!menu)return;btn.addEventListener('click',function(){var open=menu.classList.toggle('open');btn.classList.toggle('open',open);btn.setAttribute('aria-expanded',open);});})();
+  if(window.netlifyIdentity){window.netlifyIdentity.on('init',function(user){if(!user){window.netlifyIdentity.on('login',function(){document.location.href='/admin/';});}});}
+  </script>
+</body>
+</html>
