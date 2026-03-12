@@ -87,31 +87,30 @@
 <!-- ===================== BLOG GRID ===================== -->
 <section>
   <div class="container">
-    <!-- Featured post -->
-    <div class="fade-in" style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-2xl); padding: var(--space-10); display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-10); align-items: center; margin-bottom: var(--space-10);">
+    <!-- Featured post — auto-populated from most recent post -->
+    <div id="featured-post" class="fade-in" style="display:none; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-2xl); padding: var(--space-10); display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-10); align-items: center; margin-bottom: var(--space-10);">
       <div style="display: flex; flex-direction: column; gap: var(--space-4);">
         <div style="display: flex; align-items: center; gap: var(--space-3);">
-          <span class="blog-card-tag">Featured</span>
-          <span class="blog-card-tag" style="background: var(--color-surface-offset); color: var(--color-text-muted);">Cybersecurity</span>
+          <span class="blog-card-tag">Latest Post</span>
+          <span id="featured-category" class="blog-card-tag" style="background: var(--color-surface-offset); color: var(--color-text-muted);"></span>
         </div>
-        <h2 style="font-family: var(--font-display); font-size: var(--text-xl); font-weight: 800; letter-spacing: -0.025em; color: var(--color-text); line-height: 1.2;">Why Small Businesses Are the #1 Target for Ransomware in 2026</h2>
-        <p style="font-size: var(--text-base); color: var(--color-text-muted); line-height: 1.7;">Cybercriminals increasingly target small businesses because they often lack enterprise-grade defenses. Here's what you need to know — and how to protect yourself without breaking the budget.</p>
+        <h2 id="featured-title" style="font-family: var(--font-display); font-size: var(--text-xl); font-weight: 800; letter-spacing: -0.025em; color: var(--color-text); line-height: 1.2;"></h2>
+        <p id="featured-summary" style="font-size: var(--text-base); color: var(--color-text-muted); line-height: 1.7;"></p>
         <div style="display: flex; align-items: center; gap: var(--space-4); font-size: var(--text-xs); color: var(--color-text-faint);">
           <span>SmartIT Team</span>
           <span>·</span>
-          <span>March 2026</span>
-          <span>·</span>
-          <span>8 min read</span>
+          <span id="featured-date"></span>
         </div>
-        <a href="#" class="btn btn-primary" style="align-self: flex-start;">Read Article</a>
+        <a id="featured-link" href="#" class="btn btn-primary" style="align-self: flex-start;">Read Article</a>
       </div>
-      <div style="background: linear-gradient(135deg, var(--color-primary-highlight) 0%, var(--color-bg) 100%); border-radius: var(--radius-xl); aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center;">
-        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1" opacity="0.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <div id="featured-image-wrap" style="background: linear-gradient(135deg, var(--color-primary-highlight) 0%, var(--color-bg) 100%); border-radius: var(--radius-xl); aspect-ratio: 4/3; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+        <img id="featured-image" src="" alt="" style="width:100%; height:100%; object-fit:cover; display:none;">
+        <svg id="featured-icon" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1" opacity="0.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
       </div>
     </div>
     <style>
       @media (max-width: 700px) {
-        .featured-grid { grid-template-columns: 1fr !important; }
+        #featured-post { grid-template-columns: 1fr !important; }
       }
     </style>
 
@@ -394,6 +393,34 @@
   });
 })();
 
+
+
+// Auto-populate featured post from most recent post
+(function() {
+  fetch('./posts/posts-index.json')
+    .then(function(r) { return r.json(); })
+    .then(function(posts) {
+      if (!posts || posts.length === 0) return;
+      // Most recent post (already sorted by date desc)
+      var post = posts[0];
+      document.getElementById('featured-title').textContent = post.title || '';
+      document.getElementById('featured-summary').textContent = post.summary || '';
+      document.getElementById('featured-category').textContent = post.category || '';
+      document.getElementById('featured-date').textContent = post.date ? new Date(post.date).toLocaleDateString('en-US', {year:'numeric', month:'long', day:'numeric'}) : '';
+      document.getElementById('featured-link').href = './post.html?post=' + post.slug;
+      // Show image if available
+      if (post.image) {
+        var img = document.getElementById('featured-image');
+        var icon = document.getElementById('featured-icon');
+        img.src = post.image;
+        img.alt = post.title || '';
+        img.style.display = 'block';
+        icon.style.display = 'none';
+      }
+      document.getElementById('featured-post').style.display = 'grid';
+    })
+    .catch(function() {});
+})();
 
 // Load real CMS posts from posts-index.json
 (function() {
