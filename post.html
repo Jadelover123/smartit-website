@@ -175,6 +175,10 @@
         <p class="post-summary" id="post-summary"></p>
       </div>
     </div>
+    <!-- Featured image -->
+    <div id="post-featured-image" style="display:none; max-width:900px; margin: 0 auto; padding: 0 var(--space-6);">
+      <img id="post-image" src="" alt="" style="width:100%; border-radius: var(--radius-2xl); aspect-ratio: 16/9; object-fit: cover;">
+    </div>
     <div class="post-body" id="post-body"></div>
   </article>
 
@@ -234,6 +238,13 @@
         document.getElementById('post-category').textContent = fm.category || '';
         document.getElementById('post-date').textContent = fm.date ? new Date(fm.date).toLocaleDateString('en-US', {year:'numeric',month:'long',day:'numeric'}) : '';
         document.getElementById('post-summary').textContent = fm.summary || '';
+        if (fm.image) {
+          var imgEl = document.getElementById('post-image');
+          var imgWrap = document.getElementById('post-featured-image');
+          imgEl.src = fm.image;
+          imgEl.alt = fm.title || '';
+          imgWrap.style.display = 'block';
+        }
         document.getElementById('post-body').innerHTML = marked.parse(body);
         document.getElementById('post-loading').style.display = 'none';
         document.getElementById('post-content').style.display = 'block';
