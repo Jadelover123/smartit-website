@@ -1,0 +1,5 @@
+# Redirect non-www to www
+https://smartitlc.com/* https://www.smartitlc.com/:splat 301!
+
+# Handle trailing slash on homepage
+https://www.smartitlc.com/index.html https://www.smartitlc.com/ 301

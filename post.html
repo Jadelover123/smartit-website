@@ -9,10 +9,85 @@
  Created with Perplexity Computer
  https://www.perplexity.ai/computer
 -->
+  <!-- LocalBusiness + Organization Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["LocalBusiness", "ProfessionalService"],
+        "@id": "https://www.smartitlc.com/#business",
+        "name": "SmartIT LLC",
+        "description": "SmartIT LLC provides managed IT services, cloud migration, network setup, cybersecurity, and IT support to small and medium businesses in Lake Charles, Louisiana.",
+        "url": "https://www.smartitlc.com",
+        "telephone": "+1-337-761-9122",
+        "email": "info@smartitlc.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "1897 Easy St.",
+          "addressLocality": "Lake Charles",
+          "addressRegion": "LA",
+          "postalCode": "70605",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 30.1736,
+          "longitude": -93.2174
+        },
+        "areaServed": {
+          "@type": "GeoCircle",
+          "geoMidpoint": {
+            "@type": "GeoCoordinates",
+            "latitude": 30.1736,
+            "longitude": -93.2174
+          },
+          "geoRadius": "80000"
+        },
+        "serviceArea": {
+          "@type": "AdministrativeArea",
+          "name": "Southwest Louisiana"
+        },
+        "priceRange": "$$",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+            "opens": "08:00",
+            "closes": "17:00"
+          }
+        ],
+        "sameAs": [
+          "https://www.smartitlc.com"
+        ],
+        "creator": {
+          "@type": "SoftwareApplication",
+          "name": "Perplexity Computer",
+          "url": "https://www.perplexity.ai/computer"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://www.smartitlc.com/#organization",
+        "name": "SmartIT LLC",
+        "url": "https://www.smartitlc.com",
+        "logo": "https://www.smartitlc.com/assets/logo.png",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+1-337-761-9122",
+          "contactType": "customer service",
+          "areaServed": "US",
+          "availableLanguage": "English"
+        }
+      }
+    ]
+  }
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog | SmartIT LLC</title>
   <meta name="description" content="SmartIT LLC blog — technology insights for small businesses in Lake Charles, Louisiana.">
+  <link rel="canonical" href="https://www.smartitlc.com/post.html">
   <link rel="preconnect" href="https://api.fontshare.com">
   <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./base.css">
@@ -130,6 +205,7 @@
         <li><a href="./services.html">Services</a></li>
         <li><a href="./about.html">About</a></li>
         <li><a href="./blog.html" class="active">Blog</a></li>
+        <li><a href="./faq.html">FAQ</a></li>
         <li><a href="./contact.html">Contact</a></li>
       </ul>
       <div class="nav-actions">
@@ -148,6 +224,7 @@
         <li><a href="./services.html">Services</a></li>
         <li><a href="./about.html">About</a></li>
         <li><a href="./blog.html">Blog</a></li>
+        <li><a href="./faq.html">FAQ</a></li>
         <li><a href="./contact.html">Contact</a></li>
       </ul>
     </div>
@@ -188,7 +265,12 @@
       <div>
         <img src="./assets/logo.png" alt="SmartIT LLC" style="height:28px;width:auto;margin-bottom:var(--space-2);">
         <p style="font-size:var(--text-xs);color:var(--color-text-muted);">© 2026 SmartIT LLC. All rights reserved.</p>
-        <p style="font-size:var(--text-xs);color:var(--color-text-muted);margin-top:4px;">Lake Charles, Louisiana</p>
+        <p style="font-size:var(--text-xs);color:var(--color-text-muted);margin-top:4px;">
+          <a href="tel:+13377619122" style="color:var(--color-text-muted);text-decoration:none;">337-761-9122</a>
+          &nbsp;·&nbsp;
+          <a href="mailto:info@smartitlc.com" style="color:var(--color-text-muted);text-decoration:none;">info@smartitlc.com</a>
+        </p>
+        <p style="font-size:var(--text-xs);color:var(--color-text-muted);margin-top:4px;">1897 Easy St., Lake Charles, LA 70605</p>
       </div>
       <div style="display:flex;gap:var(--space-6);flex-wrap:wrap;">
         <a href="./index.html" style="font-size:var(--text-sm);color:var(--color-text-muted);text-decoration:none;">Home</a>
